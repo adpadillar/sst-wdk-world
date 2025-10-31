@@ -1,5 +1,11 @@
 # sst-wdk-world
 
+## 0.0.5
+
+### Patch Changes
+
+- df583a0: lambda handler
+
 ## 0.0.4
 
 ### Patch Changes
