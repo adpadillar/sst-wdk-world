@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "lint": "tsc",
-    "release": "pnpm run lint && pnpm run build && changeset publish"
+    "ci": "pnpm run lint && pnpm run build",
+    "release": "pnpm run ci && changeset publish"
   },
   "keywords": [],
   "author": "Axel Padilla",
