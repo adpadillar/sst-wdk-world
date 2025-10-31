@@ -1,5 +1,11 @@
 # sst-wdk-world
 
+## 0.0.4
+
+### Patch Changes
+
+- 0a2404d: first world mvp
+
 ## 0.0.3
 
 ### Patch Changes
