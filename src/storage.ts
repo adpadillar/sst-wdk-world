@@ -1,4 +1,4 @@
-import { Event, Hook, Step, WorkflowRun, type Storage } from "@workflow/world";
+import type { Event, Hook, Step, WorkflowRun, Storage } from "@workflow/world";
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import {
   DeleteCommand,
@@ -11,12 +11,14 @@ import {
 
 import { monotonicFactory } from "ulid";
 import { WorkflowAPIError } from "@workflow/errors";
-import { createEmbeddedWorld } from "@workflow/world-local";
+import { dynamicImport } from "./util.js";
 
 const client = new DynamoDBClient({});
 const docClient = DynamoDBDocumentClient.from(client);
 
-export function createStorage({ tableName }: { tableName: string }): Storage {
+export async function createStorage({ tableName }: { tableName: string }): Promise<Storage> {
+  // Dynamic import for ES module dependency
+  const { createEmbeddedWorld } = await dynamicImport<typeof import("@workflow/world-local")>("@workflow/world-local");
   createEmbeddedWorld({});
 
   return {

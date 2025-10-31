@@ -1,20 +1,22 @@
 /**
- * Creates a lazily-evaluated, memoized version of the provided function.
- *
- * The returned object exposes a `value` getter that calls `fn` only once,
- * caches its result, and returns the cached value on subsequent accesses.
- *
- * @typeParam T - The return type of the provided function.
- * @param fn - The function to be called once and whose result will be cached.
- * @returns An object with a `value` property that returns the memoized result of `fn`.
+ * Helper to preserve dynamic import() for ES modules in CommonJS output
+ * TypeScript will transform import() to require() when compiling to CommonJS,
+ * so we use Function to preserve the runtime import() call
  */
+export function dynamicImport<T = any>(moduleSpecifier: string): Promise<T> {
+  // Using Function constructor to preserve runtime import() call
+  // This prevents TypeScript from transforming it to require()
+  return new Function("return import(arguments[0])")(
+    moduleSpecifier
+  ) as Promise<T>;
+}
+
 export function once<T>(fn: () => T) {
-  const result = {
-    get value() {
-      const value = fn();
-      Object.defineProperty(result, "value", { value });
-      return value;
-    },
+  let result: T | undefined;
+  return () => {
+    if (result === undefined) {
+      result = fn();
+    }
+    return result;
   };
-  return result;
 }

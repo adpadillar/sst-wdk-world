@@ -1,9 +1,13 @@
-import { MessageId, type Queue, ValidQueueName } from "@workflow/world";
+import type { Queue } from "@workflow/world";
 import z from "zod";
 
 import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs";
+import { dynamicImport } from "./util.js";
 
-export function createQueue({ queueUrl }: { queueUrl: string }): Queue {
+export async function createQueue({ queueUrl }: { queueUrl: string }): Promise<Queue> {
+  // Dynamic import for ES module dependency
+  const { MessageId, ValidQueueName } = await dynamicImport<typeof import("@workflow/world")>("@workflow/world");
+
   /**
    * holds inflight messages by idempotency key to ensure
    * that we don't queue the same message multiple times

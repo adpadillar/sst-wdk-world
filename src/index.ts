@@ -10,8 +10,8 @@ import { createStreamer } from "./streamer.js";
  * @param dataDir - The directory to use for storage. If not provided, the default data dir will be used.
  * @param port - The port to use for the queue. If not provided, the default port will be used.
  */
-export function createWorld(): World {
-  const dir = config.value.dataDir;
+export async function createWorld(): Promise<World> {
+  const dir = config().dataDir;
 
   const queueUrl = process.env.WORKFLOW_SQS_QUEUE_URL;
   console.log("queueUrl", queueUrl);
@@ -24,9 +24,14 @@ export function createWorld(): World {
     throw new Error("WORKFLOW_TABLE_NAME is not set");
   }
 
+  const [queue, storage] = await Promise.all([
+    createQueue({ queueUrl }),
+    createStorage({ tableName }),
+  ]);
+
   return {
-    ...createQueue({ queueUrl }),
-    ...createStorage({ tableName }),
+    ...queue,
+    ...storage,
     ...createStreamer(dir),
   };
 }
