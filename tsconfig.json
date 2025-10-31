@@ -14,7 +14,7 @@
     "noUnusedParameters": true,
     "preserveWatchOutput": true,
     "skipLibCheck": true,
-    "module": "node20",
+    "module": "Node16",
     "lib": ["es2022"],
     "strict": true,
     "outDir": "dist",
