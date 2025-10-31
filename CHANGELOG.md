@@ -1,5 +1,11 @@
 # sst-wdk-world
 
+## 0.0.6
+
+### Patch Changes
+
+- 193ff8b: fix small bug
+
 ## 0.0.5
 
 ### Patch Changes
