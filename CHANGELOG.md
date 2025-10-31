@@ -1,5 +1,11 @@
 # sst-wdk-world
 
+## 0.0.8
+
+### Patch Changes
+
+- 184c782: updates
+
 ## 0.0.7
 
 ### Patch Changes
