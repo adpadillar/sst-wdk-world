@@ -162,7 +162,7 @@ export async function handler(
   }
 }
 
-export async function createLambdaHandler(opts: {
+export function createLambdaHandler(opts: {
   queueUrl: string;
   schedulerRoleArn: string;
   workflowServerUrl: string;
