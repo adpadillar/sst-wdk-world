@@ -1,0 +1,25 @@
+{
+  "name": "sst-wdk-world",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "lint": "tsc",
+    "release": "pnpm run lint && pnpm run build && changeset publish"
+  },
+  "keywords": [],
+  "author": "Axel Padilla",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "@changesets/cli": "^2.29.7",
+    "@types/node": "^24.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "tsup": "^8.5.0"
+  }
+}
