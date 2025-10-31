@@ -1,5 +1,11 @@
 # sst-wdk-world
 
+## 0.0.11
+
+### Patch Changes
+
+- c5dce06: dynamic imports
+
 ## 0.0.10
 
 ### Patch Changes
