@@ -30,3 +30,5 @@ export function createWorld(): World {
     ...createStreamer(dir),
   };
 }
+
+export { createLambdaHandler } from "./lambda";
