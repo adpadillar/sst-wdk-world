@@ -1,5 +1,11 @@
 # sst-wdk-world
 
+## 0.0.10
+
+### Patch Changes
+
+- 5f6564e: back to commonjs
+
 ## 0.0.9
 
 ### Patch Changes
