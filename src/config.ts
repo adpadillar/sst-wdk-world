@@ -1,4 +1,4 @@
-import { once } from "./util";
+import { once } from "./util.js";
 
 const getDataDirFromEnv = () => {
   return process.env.WORKFLOW_EMBEDDED_DATA_DIR || ".workflow-data";

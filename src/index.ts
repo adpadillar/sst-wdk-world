@@ -1,8 +1,8 @@
 import type { World } from "@workflow/world";
-import { config } from "./config";
-import { createQueue } from "./queue";
-import { createStorage } from "./storage";
-import { createStreamer } from "./streamer";
+import { config } from "./config.js";
+import { createQueue } from "./queue.js";
+import { createStorage } from "./storage.js";
+import { createStreamer } from "./streamer.js";
 
 /**
  * Creates an embedded world instance that combines queue, storage, and streamer functionalities.
@@ -31,4 +31,4 @@ export function createWorld(): World {
   };
 }
 
-export { createLambdaHandler } from "./lambda";
+export { createLambdaHandler } from "./lambda.js";

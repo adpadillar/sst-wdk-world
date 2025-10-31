@@ -2,7 +2,7 @@ import { EventEmitter } from "node:events";
 import path from "node:path";
 import type { Streamer } from "@workflow/world";
 import { monotonicFactory } from "ulid";
-import { listJSONFiles, readBuffer, write } from "./fs";
+import { listJSONFiles, readBuffer, write } from "./fs.js";
 
 // Create a monotonic ULID factory that ensures ULIDs are always increasing
 // even when generated within the same millisecond
