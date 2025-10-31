@@ -2,7 +2,7 @@
   "name": "sst-wdk-world",
   "version": "0.0.9",
   "description": "",
-  "type": "module",
+  "type": "commonjs",
   "main": "dist/index.js",
   "files": [
     "dist"
