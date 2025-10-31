@@ -1,5 +1,11 @@
 # sst-wdk-world
 
+## 0.0.9
+
+### Patch Changes
+
+- 76a2023: update import to be es modules
+
 ## 0.0.8
 
 ### Patch Changes
