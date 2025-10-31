@@ -1,5 +1,11 @@
 # sst-wdk-world
 
+## 0.0.7
+
+### Patch Changes
+
+- 4600adb: reformat build output
+
 ## 0.0.6
 
 ### Patch Changes
